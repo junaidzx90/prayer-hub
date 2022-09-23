@@ -1,0 +1,273 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap');
+ #ph_box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+}
+
+button.ph_btn {
+    all: unset;
+    background: var(--ph_circle_bg_color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+button.ph_btn:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+div#ph_circle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+div#ph_popup {
+    width: 330px;
+    min-height: 350px;
+    position: absolute;
+    right: 0;
+    bottom: 65px;
+    background: var(--ph_popup_bg_color);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 38px rgb(0 0 0 / 15%);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form#ph_form {
+    width: 100%;
+}
+.phstep h3{
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+h3.ph_title {
+    font-weight: bolder;
+    font-size: 28px;
+}
+.phstep_1 {
+    text-align: center;
+}
+.phstep h3{
+    color: var(--ph_popup_texts_color);
+    font-weight: bold;
+}
+.phstep_1 p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--ph_popup_texts_color);
+}
+button.getStartStep1 {
+    all: unset;
+    margin-top: 30px;
+    background: var(--ph_btns_bg_color);
+    color: var(--ph_btns_txts_color);
+    width: 100%;
+    height: 40px;
+    border-radius: 25px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+button.getStartStep1:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.pray_field {
+    background: #e7e7e7;
+    height: 260px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.pray_field textarea {
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 190px;
+    resize: none;
+    outline: none;
+    margin: 0;
+}
+button.ph_continue, .ph_submit {
+    all: unset;
+    background: var(--ph_btns_bg_color);
+    color: var(--ph_btns_txts_color);
+    width: 100%;
+    height: 40px;
+    border-radius: 25px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+.ph_submit{
+    border: none;
+}
+button.ph_continue:hover, .ph_submit:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+} 
+.texthints {
+    width: 100%;
+    color: var(--ph_popup_texts_color);
+    text-align: right;
+    font-size: 12px;
+}
+/* width */
+.pray_field textarea::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  .pray_field textarea::-webkit-scrollbar-track {
+    background: var(--ph_btns_bg_color);
+  }
+  
+  /* Handle */
+  .pray_field textarea::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+  }
+  
+  /* Handle on hover */
+  .pray_field textarea::-webkit-scrollbar-thumb:hover {
+    background: #696969;
+  }
+  .ph_input_field {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+  .ph_input_field input[type="text"], .ph_input_field input[type="email"] {
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    background: #e7e7e7;
+    padding: 10px;
+    height: 40px;
+    color: #000;
+    outline: none;
+    margin: 0;
+}
+.ph_input_field label {
+    color: var(--ph_popup_texts_color);
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    user-select: none;
+}
+.ph_input_field input[type="text"]::placeholder, .ph_input_field input[type="email"]::placeholder{
+    color: var(--ph_popup_texts_color);
+}
+.ph_input_field input[type="checkbox"] {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+#ph_toogle {
+    display: none;
+  }
+  
+  .ph_toogle-button {
+    font-weight: bold;
+    font-size: 10PX;
+    display: inline-block;
+    width: 70px;
+    height: 35px;
+    background-color: #e7e7e7;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .ph_toogle-button::after {
+    content: attr(data-label-off);
+    width: 40px;
+    height: 40px;
+    color: #E7E2CD;
+    background-color: #B4223C;
+    border: 2px solid #E7E2CD;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #f0241d;
+    position: absolute;
+    top: -3px;
+    left: -3;
+    line-height: 0;
+    display: grid;
+    place-content: center;
+    transition: all .5s;
+    transform: 1s ease-in;
+  }
+  
+  #ph_toogle:checked + .ph_toogle-button::after {
+    content: attr(data-label-on);
+    background-color: var(--ph_popup_texts_color);
+    box-shadow: 0 0 5px var(--ph_popup_texts_color);
+    transform: translateX(30px) rotate(360deg);
+    -webkit-transform: translateX(30px) rotate(360deg);
+    -moz-transform: translateX(30px) rotate(360deg);
+    -ms-transform: translateX(30px) rotate(360deg);
+    -o-transform: translateX(30px) rotate(360deg);
+}
+.ph_confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h3.ph_thanks_title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--ph_popup_texts_color);
+    font-weight: bold;
+}
+.ph_confirmation p {
+    font-size: 16px;
+    color: var(--ph_popup_texts_color);
+    line-height: 20px;
+    font-weight: 500;
+}
+.ph_loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+
+
+
+
+.dnone{
+    display: none !important;
+}
