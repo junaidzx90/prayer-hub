@@ -81,6 +81,31 @@ class Prayer_Hub_Admin {
 		// Email
 		add_settings_field( 'ph_email', 'Email', [$this, 'ph_email_cb'], 'prayer_hub_page','prayer_hub_section' );
 		register_setting( 'prayer_hub_section', 'ph_email' );
+		
+		// Logo URL
+		add_settings_field( 'ph_logo_url', 'Logo URL', [$this, 'ph_logo_url_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_logo_url' );
+		// Google font url
+		add_settings_field( 'ph_google_font_url', 'Google font URL', [$this, 'ph_google_font_url_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_google_font_url' );
+		// Font family
+		add_settings_field( 'ph_font_family', 'Font family', [$this, 'ph_font_family_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_font_family' );
+		// Form title
+		add_settings_field( 'ph_form_title', 'Form title', [$this, 'ph_form_title_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_form_title' );
+		// Form title font size
+		add_settings_field( 'ph_form_title_font_size', 'Form title font size', [$this, 'ph_form_title_font_size_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_form_title_font_size' );
+		// Question font size
+		add_settings_field( 'ph_qsn_font_size', 'Question font size', [$this, 'ph_qsn_font_size_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_qsn_font_size' );
+		// Label font size
+		add_settings_field( 'ph_label_font_size', 'Label font size', [$this, 'ph_label_font_size_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_label_font_size' );
+		// Text font size
+		add_settings_field( 'ph_text_font_size', 'Text font size', [$this, 'ph_text_font_size_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_text_font_size' );
 		// Circle color
 		add_settings_field( 'ph_circle_bg_color', 'Circle background color', [$this, 'ph_circle_bg_color_cb'], 'prayer_hub_page','prayer_hub_section' );
 		register_setting( 'prayer_hub_section', 'ph_circle_bg_color' );
@@ -96,14 +121,44 @@ class Prayer_Hub_Admin {
 		// Popup texts color
 		add_settings_field( 'ph_popup_texts_color', 'Popup texts color', [$this, 'ph_popup_texts_color_cb'], 'prayer_hub_page','prayer_hub_section' );
 		register_setting( 'prayer_hub_section', 'ph_popup_texts_color' );
-		// Description
-		add_settings_field( 'ph_popup_description', 'Description', [$this, 'ph_popup_description_cb'], 'prayer_hub_page','prayer_hub_section' );
+		// First description
+		add_settings_field( 'ph_popup_description', 'First description', [$this, 'ph_popup_description_cb'], 'prayer_hub_page','prayer_hub_section' );
 		register_setting( 'prayer_hub_section', 'ph_popup_description' );
+		// Thank you text
+		add_settings_field( 'ph_thank_you_text', 'Thank you text', [$this, 'ph_thank_you_text_cb'], 'prayer_hub_page','prayer_hub_section' );
+		register_setting( 'prayer_hub_section', 'ph_thank_you_text' );
 		
 	}
 
 	function ph_email_cb(){
 		echo '<input type="email" value="'.get_option( 'ph_email' ).'" placeholder="'.get_option( 'admin_email' ).'" name="ph_email">';
+	}
+	
+	function ph_logo_url_cb(){
+		echo '<input type="url" class="widefat" value="'.get_option( 'ph_logo_url' ).'" name="ph_logo_url">';
+	}
+	function ph_google_font_url_cb(){
+		echo '<input type="url" placeholder="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap" class="widefat" value="'.get_option( 'ph_google_font_url' ).'" name="ph_google_font_url">';
+	}
+	function ph_font_family_cb(){
+		echo '<input type="text" placeholder="\'Montserrat\', sans-serif" class="widefat" value="'.get_option( 'ph_font_family' ).'" name="ph_font_family">';
+	}
+	function ph_form_title_cb(){
+		echo '<input type="text" value="'.get_option( 'ph_form_title' ).'" placeholder="Join us in prayer" name="ph_form_title">';
+	}
+	function ph_form_title_font_size_cb(){
+		echo '<input type="number" value="'.get_option( 'ph_form_title_font_size' ).'" placeholder="28" name="ph_form_title_font_size">';
+		echo '<p style="margin: 0">Join us in prayer & Thank you</p>';
+	}
+	function ph_qsn_font_size_cb(){
+		echo '<input type="number" value="'.get_option( 'ph_qsn_font_size' ).'" placeholder="18" name="ph_qsn_font_size">';
+		echo '<p style="margin: 0">How can we pray for you?</p>';
+	}
+	function ph_label_font_size_cb(){
+		echo '<input type="number" value="'.get_option( 'ph_label_font_size' ).'" placeholder="16" name="ph_label_font_size">';
+	}
+	function ph_text_font_size_cb(){
+		echo '<input type="number" value="'.get_option( 'ph_text_font_size' ).'" placeholder="14" name="ph_text_font_size">';
 	}
 	function ph_circle_bg_color_cb(){
 		echo '<input type="text" value="'.((get_option( 'ph_circle_bg_color' ))?get_option( 'ph_circle_bg_color' ):'#1D9BF0').'" data-default-color="#1D9BF0" name="ph_circle_bg_color" id="ph_circle_bg_color">';
@@ -121,7 +176,10 @@ class Prayer_Hub_Admin {
 		echo '<input type="text" value="'.((get_option( 'ph_popup_texts_color' ))?get_option( 'ph_popup_texts_color' ):'#1D9BF0').'" data-default-color="#1D9BF0" name="ph_popup_texts_color" id="ph_popup_texts_color">';
 	}
 	function ph_popup_description_cb(){
-		echo '<textarea placeholder="We enjoy praying together, seeking God\'s guidance and praising Him for His mercies in our lives. You can submit your prayer request by clicking on the \'Get Started\' button below." style="width: 350px; height: 200px; resize: none;" name="ph_popup_description">'.get_option( 'ph_popup_description' ).'</textarea>';
+		echo '<textarea placeholder="We enjoy praying together, seeking God\'s guidance and praising Him for His mercies in our lives. You can submit your prayer request by clicking on the \'Get Started\' button below." style="width: 350px; height: 150px; resize: none;" name="ph_popup_description">'.get_option( 'ph_popup_description' ).'</textarea>';
+	}
+	function ph_thank_you_text_cb(){
+		echo '<textarea placeholder="We are so blessed you shared your prayer with us." style="width: 350px; height: 150px; resize: none;" name="ph_thank_you_text">'.get_option( 'ph_thank_you_text' ).'</textarea>';
 	}
 	
 

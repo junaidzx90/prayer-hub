@@ -2,14 +2,20 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap');
+ 
  #ph_box {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 999999;
 }
-
+.ph_log_container {
+    height: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 button.ph_btn {
     all: unset;
     background: var(--ph_circle_bg_color);
@@ -23,7 +29,7 @@ button.ph_btn {
     align-items: center;
     border: none;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -39,7 +45,7 @@ div#ph_circle {
 }
 div#ph_popup {
     width: 330px;
-    min-height: 350px;
+    min-height: 424px;
     position: absolute;
     right: 0;
     bottom: 65px;
@@ -47,7 +53,7 @@ div#ph_popup {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 38px rgb(0 0 0 / 15%);
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,12 +62,12 @@ form#ph_form {
     width: 100%;
 }
 .phstep h3{
-    margin-bottom: 24px;
-    font-size: 18px;
+    margin-bottom: 20px;
+    font-size: var(--ph_qsn_font_size);
 }
 h3.ph_title {
     font-weight: bolder;
-    font-size: 28px;
+    font-size: var(--ph_form_title_font_size);
 }
 .phstep_1 {
     text-align: center;
@@ -72,7 +78,7 @@ h3.ph_title {
 }
 .phstep_1 p{
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--ph_text_font_size);
     line-height: 20px;
     color: var(--ph_popup_texts_color);
 }
@@ -116,15 +122,17 @@ button.getStartStep1:hover{
     margin: 0;
 }
 button.ph_continue, .ph_submit {
-    all: unset;
-    background: var(--ph_btns_bg_color);
-    color: var(--ph_btns_txts_color);
+    -webkit-appearance: unset !important;
+    background: var(--ph_btns_bg_color) !important;
+    color: var(--ph_btns_txts_color) !important;
     width: 100%;
-    height: 40px;
-    border-radius: 25px;
+    max-height: 40px;
+    border-radius: 25px !important;
     vertical-align: middle;
     text-align: center;
-    cursor: pointer;
+    cursor: pointer !important;
+    padding: 10px !important;
+    line-height: 18px !important;
 }
 .ph_submit{
     border: none;
@@ -177,7 +185,7 @@ button.ph_continue:hover, .ph_submit:hover{
 .ph_input_field label {
     color: var(--ph_popup_texts_color);
     margin: 0;
-    font-size: 16px;
+    font-size: var(--ph_label_font_size);
     line-height: 20px;
     user-select: none;
 }
@@ -241,13 +249,13 @@ button.ph_continue:hover, .ph_submit:hover{
     justify-content: center;
 }
 h3.ph_thanks_title {
-    font-size: 24px;
+    font-size: var(--ph_form_title_font_size);
     margin-bottom: 20px;
     color: var(--ph_popup_texts_color);
     font-weight: bold;
 }
 .ph_confirmation p {
-    font-size: 16px;
+    font-size: var(--ph_text_font_size);
     color: var(--ph_popup_texts_color);
     line-height: 20px;
     font-weight: 500;

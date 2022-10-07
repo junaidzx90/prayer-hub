@@ -16,7 +16,7 @@
  * Plugin Name:       Prayer Hub
  * Plugin URI:        https://www.fiverr.com/
  * Description:       A simple prayer form for people to submit prayer requests.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Developer Junayed
  * Author URI:        https://www.fiverr.com/junaidzx90
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ header("Cache-Control: no-cache");
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PRAYER_HUB_VERSION', '1.0.4' );
+define( 'PRAYER_HUB_VERSION', '1.0.5' );
 
 /**
  * The code that runs during plugin activation.

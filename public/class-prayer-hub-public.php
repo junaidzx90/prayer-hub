@@ -80,15 +80,27 @@ class Prayer_Hub_Public {
 	}
 
 	function ph_header_script(){
+		$fontUrl = ((get_option( 'ph_google_font_url' ))? get_option( 'ph_google_font_url' ) : 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap');
+		$fontfamily = ((get_option( 'ph_font_family' ))?get_option( 'ph_font_family' ):"'Montserrat', sans-serif");
 		?>
 		<style>
+			@import url(<?php echo $fontUrl ?>);
 			:root{
 				--ph_circle_bg_color: <?php echo ((get_option( 'ph_circle_bg_color' ))?get_option( 'ph_circle_bg_color' ):'#1D9BF0') ?>;
 				--ph_btns_bg_color: <?php echo ((get_option( 'ph_btns_bg_color' ))?get_option( 'ph_btns_bg_color' ):'#1D9BF0') ?>;
 				--ph_btns_txts_color: <?php echo ((get_option( 'ph_btns_txts_color' ))?get_option( 'ph_btns_txts_color' ):'#FFFFFF') ?>;
 				--ph_popup_bg_color: <?php echo ((get_option( 'ph_popup_bg_color' ))?get_option( 'ph_popup_bg_color' ):'#FFFFFF') ?>;
 				--ph_popup_texts_color: <?php echo ((get_option( 'ph_popup_texts_color' ))?get_option( 'ph_popup_texts_color' ):'#1D9BF0') ?>;
+				--ph_form_title_font_size: <?php echo ((get_option( 'ph_form_title_font_size' ))?get_option( 'ph_form_title_font_size' ).'px':'28px') ?>;
+				--ph_qsn_font_size: <?php echo ((get_option( 'ph_qsn_font_size' ))?get_option( 'ph_qsn_font_size' ).'px':'18px') ?>;
+				--ph_label_font_size: <?php echo ((get_option( 'ph_label_font_size' ))?get_option( 'ph_label_font_size' ).'px':'16px') ?>;
+				--ph_text_font_size: <?php echo ((get_option( 'ph_text_font_size' ))?get_option( 'ph_text_font_size' ).'px':'14px') ?>;
 			}
+			
+			#ph_box{
+				font-family: <?php echo $fontfamily ?>;
+			}
+			
 		</style>
 		<?php
 	}
@@ -101,14 +113,17 @@ class Prayer_Hub_Public {
 					<form action="" method="post" id="ph_form">
 						<!-- Step 1 -->
 						<div class="phstep phstep_1 ">
-							<h3 class="ph_title">Join us in prayer</h3>
-							<p><?php echo ((get_option( 'ph_popup_description' ))?get_option( 'ph_popup_description' ):'We enjoy praying together, seeking God\'s guidance and praising Him for His mercies in our lives. You can submit your prayer request by clicking on the "Get Started" button below.') ?></p>
+							<div class="ph_log_container">
+								<img width="50px" class="ph_logo" src="<?php echo get_option( 'ph_logo_url' ) ?>">
+							</div>
+							<h3 class="ph_title"><?php echo ((get_option( 'ph_form_title' ))?__(get_option( 'ph_form_title' ), 'prayer-hub'): __("Join us in prayer", "prayer-hub")) ?></h3>
+							<p><?php echo ((get_option( 'ph_popup_description' ))?__(get_option( 'ph_popup_description' ), 'prayer-hub'):__('We enjoy praying together, seeking God\'s guidance and praising Him for His mercies in our lives. You can submit your prayer request by clicking on the "Get Started" button below.', 'prayer-hub')) ?></p>
 							<button class="getStartStep1">Get Started</button>
 						</div>
 
 						<!-- spet 2 -->
 						<div class="phstep phstep_2 dnone">
-							<h3 class="ph_title_2">How can we pray for you?</h3>
+							<h3 class="ph_title_2"><?php echo __("How can we pray for you?", "prayer-hub") ?></h3>
 							<div class="pray_field">
 								<textarea required name="pray_request" id="pray_request"></textarea>
 								<div class="texthints">
@@ -155,7 +170,7 @@ class Prayer_Hub_Public {
 						<!-- Confirmation -->
 						<div class="ph_confirmation dnone">
 							<h3 class="ph_thanks_title">Thank you</h3>
-							<p>We are so blessed you shared your prayer with us.</p>
+							<p><?php echo ((get_option( 'ph_thank_you_text' ))?__(get_option( 'ph_thank_you_text' ),"prayer-hub"):__("We are so blessed you shared your prayer with us.","prayer-hub")) ?></p>
 						</div>
 					</form>
 				</div>
